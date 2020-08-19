@@ -1,0 +1,17 @@
+자바 입출력에는 두 가지 종류가 있다.
+한 바이트씩 읽고 쓰는 바이트 단위 스트림이 있고 두 바이트씩 읽고 쓰는 문자 단위 스트림이다.
+
+단일 바이트 단위 스트림에는 클래스 이름 마지막에 stream이 붙는다.
+ex) FileInputStream,BufferedInputStream,등등
+쌍 바이트 단위 스트림은 클래스 이름 마지막에 reader나 writer가 붙는다.
+ex) FileReader,InputStreamReader,등등
+
+보조스트림 이란 실제 읽고 쓰는 스트림이 아닌 보조적인 기능을 추가하는 스트림 이다.
+FilterInputStream과 FilterOutputStream이 보조스트림의 상위 클래스이다.
+이 스트림들은 생성자로 또 다른 스트림을 가진다.
+FileInputStream으로 바이트 단위 파일 입력을 한다고 할 때 보조스트림으로 문자로 변환 기능을 추가하고 버퍼링 기능 등등을 추가 할 수 있다.
+이런 식으로 기반이 되는 스트림에 보조적인 기능을 하나하나 추가하는 패턴을 데코레이션 패턴 이라고 한다.
+
+여러가지 보조스트림 사용하기.
+Buffered 스트림 : 내부에 8192 바이트 배열을 가지고 있어 읽거나 쓸 때 속도가 빠름.
+DataInputStream/DataOutputStream : 자료가 저장된 상태 그대로 자료형을 유지하며 읽거나 쓰는 기능을 제공하는 스트림.
