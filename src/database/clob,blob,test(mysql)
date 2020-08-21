@@ -1,0 +1,16 @@
+TEXT is a data-type for text based input.
+On the other hand, you have BLOB and CLOB which are more suitable for data storage (images, etc) due to their larger capacity limits (4GB for example).
+As for the difference between BLOB and CLOB, I believe CLOB has character encoding associated with it, which implies it can be suited well for very large amounts of text.
+BLOB and CLOB data can take a long time to retrieve, relative to how quick data from a TEXT field can be retrieved. So, use only what you need.
+
+https://linuxism.ustd.ip.or.kr/803
+
+TEXT 타입 크기
+
+TINYTEXT 256 bytes
+TEXT 65,535 bytes ~64kb
+MEDIUMTEXT 16,777,215 bytes ~16MB
+LONGTEXT 4,294,967,295 bytes ~4GB
+
+
+출처: https://sjpison.tistory.com/119 [비손의 블로그]
