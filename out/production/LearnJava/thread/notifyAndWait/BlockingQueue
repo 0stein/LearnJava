@@ -1,0 +1,16 @@
+http://happinessoncode.com/2017/10/05/java-object-wait-and-notify/
+
+위 블로그에서는 동시성에 안전한 큐인 BlockingQueue 를 구현.
+
+wait(), notify(), notifyAll()은 호출 스레드가 반드시 대상 객체의 고유 락을
+갖고 있어야한다. 이 말은 synchronized 블록 내에서 실행 되어야 한다는 의미이다.
+wait() 메서드를 호출 하면 락을 해제하고 스레드는 잠이 든다. 누군가 깨워 주기 전까지 wait()은
+리턴 되지 않는다.
+notify() 메서드는 임의의 잠든 스레드 하나를 깨운다. notifyAll()도 같은 기능을 하지만 잠든 모든
+스레드를 깨우고 그 스레드들은 다시 락을 획득하기 위해 경쟁, 락을 획득한 스레드가 wait() 함수를 리턴시키고
+다음 로직을 수행한다.
+
+BlockingQueue의 경우 enque 메소드가 queue의 용량이 꽉 찼을 경우 wait()을 호출하여 대기한다.
+만약 deque로 인해 자리가 빌 경우 notify를 호출하여 잠든 wait을 리턴, 다음 로직을 수행한다.
+deque의 경우에도 마찬가지로 용량이 비었을 경우 wait을 호출하고 같은 패턴으로 수행한다.
+

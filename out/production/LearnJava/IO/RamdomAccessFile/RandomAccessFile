@@ -1,0 +1,12 @@
+생성자
+RandomAccessFile(File file, Stirng mode)
+
+mode -> R  : 읽기 기능
+        Rw : 읽기 쓰기 기능
+        Rws: 출력한 내용이 파일에 즉시 반영, i/o를 줄일 수 있다. 파일의 내용과 상태 정보가 같이 변경
+
+메서드
+long getFilePointer() : 파일 포인터의 위치를 반환한다.
+long length() : 파일의 크기를 바이트 값으로 반환한다.
+void skeep(long p) : 파일 포인터의 위치를 0번 인덱스로부터 지정한 값만큼 떨어진 곳으로 이동한다.
+int skipBytes(int p) : 현재의 파일 포인터 위치에서 지정한 값 만큼 skip 한다.
